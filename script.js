@@ -3,7 +3,6 @@ const buttons = document.querySelectorAll("button");
 const roundWinner = document.querySelector("#roundWinner");
 const playerBoxScore = document.querySelector("#playerBoxScore");
 const computerBoxScore = document.querySelector("#computerBoxScore");
-const gameWinner = document.querySelector("#gameWinner");
 
 // Function to randomly return Rock Paper or Scissors
 function computerPlay() {
@@ -63,9 +62,11 @@ buttons.forEach((button) =>
 
     //print the winner of the game, the first to reach a score of 5
     if (playerScore === 5) {
-      gameWinner.textContent = `Player wins the game`;
+      roundWinner.textContent = `Player wins the game`;
+      roundWinner.classList.add("winner");
     } else if (computerScore === 5) {
-      gameWinner.textContent = `Computer wins the game`;
+      roundWinner.textContent = `Computer wins the game`;
+      roundWinner.classList.add("winner");
     }
   })
 );
