@@ -6,11 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <button id="rock">ROCK</button>
-    <button id="paper">PAPER</button>
-    <button id="scissors">SCISSORS</button>
+    <div class="content">
+      <h1 class="mainTitle">Welcome to RPS game</h1>
+
+      <div id="container">
+        <div class="card">
+          <img src="images/rock.png" alt="" />
+          <button id="rock">ROCK</button>
+        </div>
+        <div class="card">
+          <img src="images/paper.png" alt="" />
+          <button id="paper">PAPER</button>
+        </div>
+        <div class="card">
+          <img src="images/scissors.png" alt="" />
+          <button id="scissors">SCISSORS</button>
+        </div>
+      </div>
+      <div id="result">
+        <div id="roundWinner"></div>
+        <div id="score">
+          <p>Player</p>
+          <div id="playerBoxScore"></div>
+          <p>Computer <div id="computerBoxScore"></div></p>
+        </div>
+        <div id="gameWinner"></div>
+      </div>
+    </div>
   </body>
 </html>

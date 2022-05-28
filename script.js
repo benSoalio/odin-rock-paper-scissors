@@ -1,7 +1,9 @@
 // SELECT the choice
 const buttons = document.querySelectorAll("button");
-const paper = document.querySelector(".paper");
-const scissors = document.querySelector(".scissors");
+const roundWinner = document.querySelector("#roundWinner");
+const playerBoxScore = document.querySelector("#playerBoxScore");
+const computerBoxScore = document.querySelector("#computerBoxScore");
+const gameWinner = document.querySelector("#gameWinner");
 
 // Function to randomly return Rock Paper or Scissors
 function computerPlay() {
@@ -42,6 +44,8 @@ function playRound(playerSelection, computerSelection) {
 let computerScore = 0;
 let playerScore = 0;
 
+//
+
 // do {
 buttons.forEach((button) =>
   button.addEventListener("click", function () {
@@ -49,16 +53,24 @@ buttons.forEach((button) =>
     const computerSelection = computerPlay();
     const playerSelection = button.id;
     let winner = playRound(playerSelection, computerSelection);
-
+    // Reset the result display
+    roundWinner.textContent = "";
     //update the score the winner
     if (winner === "player") {
       ++playerScore;
+
+      roundWinner.textContent = `${winner} wins the round`;
     } else if (winner === "computer") {
       ++computerScore;
-    }
 
+      roundWinner.textContent = `${winner} wins the round`;
+    }
+    //show the score on the page
+    playerBoxScore.textContent = `${playerScore}`;
+    computerBoxScore.textContent = `${computerScore}`;
     //Print the winner of the round and give the score
     if (winner === "") {
+      roundWinner.textContent = "it is a draw";
       console.log(
         `it is a draw, player score: ${playerScore} VS computer: ${computerScore}`
       );
@@ -67,12 +79,15 @@ buttons.forEach((button) =>
         `${winner} wins the round, player score: ${playerScore} VS computer: ${computerScore}`
       );
     }
+
     //print the winner of the game, the first to reach a score of 5
     if (playerScore === 5) {
+      gameWinner.textContent = `Player wins the game`;
       console.log(
         `Player wins the game, player score: ${playerScore} VS computer: ${computerScore}`
       );
     } else if (computerScore === 5) {
+      gameWinner.textContent = `Computer wins the game`;
       console.log(
         `Computer wins the game, player score: ${playerScore} VS computer: ${computerScore}`
       );
